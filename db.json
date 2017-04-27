@@ -1,0 +1,998 @@
+{
+  "auth": {
+    
+  },
+  "options": {
+    "collateNocase": false,
+    "forceClientChanges": false,
+    "reverseColumnFilters": false,
+    "skipClientForeignKeys": false
+  },
+  "tables": [
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_CAR",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "LICENCE_NO",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "TYPE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "VENDOR",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "MAKE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "YEAR",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "COLOR",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_CUSTOMER",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "REMARKS",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "name": "CAR",
+      "primaryKey": [
+        "ID_CAR"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_COMPANY",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "NAME_COMPANY",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "ID_COMPANY_EXTERNAL",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "default": "('N')",
+          "mandatory": true,
+          "name": "IS_CONTRACT_PARTNER",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "ID_COMPANY"
+          ],
+          "name": "UQ_COMPANY_ID_COMPANY",
+          "unique": true
+        },
+        {
+          "columns": [
+            "NAME_COMPANY"
+          ],
+          "name": "UQ_COMPANY_NAME_COMPANY",
+          "unique": true
+        }
+      ],
+      "name": "COMPANY",
+      "primaryKey": [
+        "ID_COMPANY"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_CONTENT_TYPE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "DESCRIPTION_CONTENT_TYPE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "MIME_SUBTYPE",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "DESCRIPTION_CONTENT_TYPE"
+          ],
+          "name": "UQ_CONTENT_TYPE_DESCRIPTION_CONTENT_TYPE",
+          "unique": true
+        },
+        {
+          "columns": [
+            "ID_CONTENT_TYPE"
+          ],
+          "name": "UQ_CONTENT_TYPE_ID_CONTENT_TYPE",
+          "unique": true
+        }
+      ],
+      "name": "CONTENT_TYPE",
+      "primaryKey": [
+        "ID_CONTENT_TYPE"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_CONTRACT",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_CUSTOMER",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "DATE_CREATED",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "DATE_UPDATED",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "CUSTOMER_SIGNATURE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "CUSTOMER_SIGNATURE_FILE_NAME",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "CUSTOMER_SIGNATURE_CT_ID",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "REMARKS",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "VIOLATION",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "name": "CONTRACT",
+      "primaryKey": [
+        "ID_CONTRACT"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_CONTRACT",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_CAR",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "REMARKS",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "name": "CONTRACT_CAR",
+      "primaryKey": [
+        "ID_CONTRACT",
+        "ID_CAR"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_CONTRACT",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_PARKING_SPACE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "DATE_EFFECTIVE_UNTIL",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "DATE_EFFECTIVE_FROM",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "DEPOSIT_AMOUNT",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "DATE_REQUESTED_TERMINATION",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "DATE_PLANNED_TERMINATION",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "DATE_TERMINATED",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "DATE_DEPOSIT_RELEASED",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "REMARKS",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "ID_NEXT_CONTRACT",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "name": "CONTRACT_PARKING_SPACE",
+      "primaryKey": [
+        "ID_CONTRACT",
+        "ID_PARKING_SPACE"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_COUNTRY",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "COUNTRY_NAME",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "name": "COUNTRY",
+      "primaryKey": [
+        "ID_COUNTRY"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_CUSTOMER",
+          "readOnly": false
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "FIRST_NAME",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "LAST_NAME",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "ORG_NUMBER",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "CARE_OF",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "ADDRESS",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "ZIP",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "CITY",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_COUNTRY",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "PHONE_CELL",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "PHONE_HOME",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "PHONE_WORK",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "DATE_OF_BIRTH",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "DATE_CUSTOMER_SINCE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "DATE_RECORD_LAST_UPDATE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "CUSTOMER_STATUS",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "REMARKS",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "EMAIL_ADDRESS",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "default": "('N')",
+          "mandatory": true,
+          "name": "IS_CONTRACT_PARTNER",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "ID_CUSTOMER"
+          ],
+          "name": "UQ_CUSTOMER_ID_CUSTOMER",
+          "unique": true
+        }
+      ],
+      "name": "CUSTOMER",
+      "primaryKey": [
+        "ID_CUSTOMER"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_PARKING_AREA",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "AREA_NAME",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "ADDRESS",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "REMARKS",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "name": "PARKING_AREA",
+      "primaryKey": [
+        "ID_PARKING_AREA"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_PARKING_SPACE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "ID_PARKING_AREA",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "PLACE_NO",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "ID_CUSTOMER",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "ID_COMPANY",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "FLOOR",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "SPACE_ROW",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "SPACE_COLUMN",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "TYPE_NAME",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "REMARKS",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "ID_PARKING_AREA",
+            "PLACE_NO"
+          ],
+          "name": "UQ_PARKING_SPACE_ID_PARKING_AREA_PLACE_NO",
+          "unique": true
+        }
+      ],
+      "name": "PARKING_SPACE",
+      "primaryKey": [
+        "ID_PARKING_SPACE"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "TYPE_NAME",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "real",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "NOK_MONTHLY_RENT",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "real",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "NOK_DEPOSIT",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "SIZE",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "POWER_OUTLET",
+          "readOnly": false,
+          "size": "256"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "REMARKS",
+          "readOnly": false,
+          "size": "256"
+        }
+      ],
+      "indexes": [
+        {
+          "columns": [
+            "TYPE_NAME"
+          ],
+          "name": "UQ_PARKING_SPACE_TYPE_TYPE_NAME",
+          "unique": true
+        }
+      ],
+      "name": "PARKING_SPACE_TYPE",
+      "primaryKey": [
+        "TYPE_NAME"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "id",
+          "readOnly": false
+        },
+        {
+          "type": "fixed",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "tdp",
+          "readOnly": false,
+          "scale": "2",
+          "size": "4"
+        },
+        {
+          "type": "fixed",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "td",
+          "readOnly": false,
+          "scale": "0",
+          "size": "18"
+        },
+        {
+          "mssqlType": "2",
+          "type": "fixed",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "m",
+          "readOnly": false,
+          "scale": "0",
+          "size": "18"
+        }
+      ],
+      "name": "TEST_DECIMAL",
+      "primaryKey": [
+        "id"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "fixed",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "openrevenue",
+          "readOnly": false,
+          "scale": "0",
+          "size": "18"
+        },
+        {
+          "mssqlType": "0",
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "accountid",
+          "readOnly": false,
+          "scale": "0",
+          "size": "18"
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "name",
+          "readOnly": false,
+          "scale": "0"
+        }
+      ],
+      "name": "account100",
+      "primaryKey": [
+        "accountid"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "openrevenue",
+          "readOnly": false
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "name",
+          "readOnly": false
+        },
+        {
+          "mssqlType": "0",
+          "type": "text",
+          "autoincrement": false,
+          "default": "(newid())",
+          "mandatory": true,
+          "name": "accountid",
+          "readOnly": false
+        },
+        {
+          "mssqlType": "0",
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "testNullableUI",
+          "readOnly": false
+        },
+        {
+          "mssqlType": "0",
+          "type": "text",
+          "autoincrement": false,
+          "default": "(newid())",
+          "mandatory": true,
+          "name": "testNotNullableUI",
+          "readOnly": false
+        },
+        {
+          "type": "datetime",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "TEST_DATE_TIME_OFFSET",
+          "readOnly": false
+        },
+        {
+          "mssqlType": "2",
+          "type": "fixed",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "TEST_MONEY",
+          "readOnly": false
+        }
+      ],
+      "name": "test01",
+      "primaryKey": [
+        "accountid"
+      ],
+      "syncType": "DELTA_SYNC"
+    },
+    {
+      "column": [
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "openrevenue",
+          "readOnly": false
+        },
+        {
+          "mssqlType": "0",
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": true,
+          "name": "accountid",
+          "readOnly": false
+        },
+        {
+          "type": "text",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "name",
+          "readOnly": false,
+          "size": "260"
+        },
+        {
+          "type": "integer",
+          "autoincrement": false,
+          "mandatory": false,
+          "name": "test",
+          "readOnly": false
+        }
+      ],
+      "name": "test02",
+      "primaryKey": [
+        "accountid"
+      ],
+      "syncType": "DELTA_SYNC"
+    }
+  ]
+}
